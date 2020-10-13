@@ -1,0 +1,38 @@
+// global.scss 全局样式文件
+@import './variables.scss';   // 引入样式文件
+
+* {
+  margin: 0px;
+  padding: 0px;
+  /* 1.移动端元素都是内减模型 */
+  box-sizing: border-box;
+}
+body {
+  background-color: #fff;
+}
+li {
+  list-style: none;
+}
+img {
+  vertical-align: middle; /* 图片居中 */
+}
+a {
+  color: #000;
+}
+input {
+  border: 0 none;
+  outline-style: none; /*取消内边框*/
+}
+
+/* 清除浮动，解决margin-top塌陷 */
+.clearfix:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.bg_color {
+  background-color: $mainColor;
+}

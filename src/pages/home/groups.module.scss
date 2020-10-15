@@ -1,0 +1,51 @@
+.groups {
+  overflow: hidden;
+  background: #f6f5f6;
+  padding: 0 10px;
+  padding-bottom: 10px;
+  .head {
+    display: flex;
+    justify-content: space-between;
+    span {
+      margin: 15px 0 15px 10px;
+    }
+    .left {
+      font-size: 15px;
+      color: #333;
+      font-weight: 700;
+    }
+    .right {
+      font-size: 14px;
+      margin-right: 10px;
+      color: #787d82;
+    }
+  }
+
+  .groups_wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    .item {
+      display: flex;
+      padding: 10px 5px 10px 10px;
+      background: #fff;
+      &:nth-child(3),
+      &:nth-child(4) {
+        margin-top: 10px;
+      }
+      .text {
+        margin-top: 10px;
+        span {
+          margin-top: 2px;
+          font-size: 12px;
+          color: #787d82;
+        }
+      }
+      img {
+        width: 55px;
+        height: 55px;
+        margin-left: 25px;
+      }
+    }
+  }
+}

@@ -17,7 +17,7 @@ class App extends Component {
         {/* Index页面 */}
         <Router>
           <Switch>
-            <Redirect exact path="/" to="/home"></Redirect>
+            <Redirect exact path="/h" to="/home"></Redirect>
             <Route path="/home" component={Index}></Route>
             <Route path="/map" component={MapFound}></Route>
             <Route path="/citylist" component={CityList}></Route>

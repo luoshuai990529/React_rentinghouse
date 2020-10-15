@@ -1,5 +1,5 @@
 // global.scss 全局样式文件
-@import './variables.scss';   // 引入样式文件
+@import "./variables.scss"; // 引入样式文件
 // 引入项目字体图标
 @import "../assets/fonts/iconfont.css";
 * {
@@ -24,7 +24,16 @@ input {
   border: 0 none;
   outline-style: none; /*取消内边框*/
 }
-
+html {
+  // 去掉左右按住移动的回弹效果，如果不取消就会出现一个问题：轮播图组件报错
+  // 保留上下能回弹
+  touch-action: pan-y;
+  // touch-action: none;
+}
+// ant走马灯高度
+.slider-slide{
+  height: calc(424 / 750 * 100vw) !important;
+}
 /* 清除浮动，解决margin-top塌陷 */
 .clearfix:after {
   content: "";

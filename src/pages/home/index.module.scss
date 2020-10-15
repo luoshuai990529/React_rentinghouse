@@ -1,0 +1,26 @@
+.imgHeight {
+  display: block;
+  height: 100%;
+}
+
+.img_awrap{
+  display: inline-block;
+  height: calc(424 / 750 * 100vw);
+}
+.banner{
+  position: relative;
+}
+// 菜单nav样式
+.navItem {
+  width: 84px;
+  text-align: center;
+  padding-top: 10px;
+  .navImg {
+    width: 48px;
+    height: 48px;
+  }
+  .navText {
+    margin-top: 8px;
+    margin-bottom: 5px;
+  }
+}

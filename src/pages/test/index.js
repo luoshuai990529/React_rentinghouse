@@ -1,69 +1,44 @@
-import { TabBar } from 'antd-mobile';
-import React from "react";
-class TabBarExample extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            selectedTab: 'redTab',
-            hidden: false,
-        };
+import { Carousel, WingBlank } from 'antd-mobile';
+import React from "react"
+import "../../styles/carousel/index.scss"
+class Carousels extends React.Component {
+    state = {
+        data: ['1', '2', '3'],
+        imgHeight: 212,
     }
-
-    // 自定义的函数
-    renderContent(pageText) {
-        return (
-            <div style={{ backgroundColor: 'white', height: '100%', textAlign: 'center' }}>
-                {pageText}
-            </div>
-        );
+    componentDidMount() {
+        // simulate img loading
+        // 
+        setTimeout(() => {
+            this.setState({
+                data: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI'],
+            });
+        }, 100);
     }
-
-    // 生命周期函数render
     render() {
         return (
-            <div style={{ position: 'fixed', height: '100%', width: '100%', top: 0 } }>
-                <TabBar
-                    unselectedTintColor="#949494"//未选中字体颜色 
-                    tintColor="#21B97A"//选中的字体颜色 
-                    barTintColor="white"//背景色
-                    hidden={this.state.hidden}
+            <WingBlank>
+                <Carousel
+                    autoplay={false}
+                    infinite
                 >
-                    <TabBar.Item
-                        title="首页"
-                        key="首页"
-                        icon={<i className="iconfont icon-ind"  /> }
-                        selectedIcon={<i className="iconfont icon-ind"  /> }
-                        selected={this.state.selectedTab === 'blueTab'}
-                        onPress={() => { this.setState({ selectedTab: 'blueTab', }); }}
-                        data-seed="logId"
-                    >
-                        {this.renderContent('首页')}
-                    </TabBar.Item>
-                    <TabBar.Item
-                        icon={ <i className="iconfont icon-findHouse" /> }
-                        selectedIcon={ <i className="iconfont icon-findHouse" /> }
-                        title="找房"
-                        key="找房"
-                        selected={this.state.selectedTab === 'redTab'}
-                        onPress={() => { this.setState({ selectedTab: 'redTab', }); }}
-                        data-seed="logId1"
-                    >
-                        {this.renderContent('找房')}
-                    </TabBar.Item>
-                    <TabBar.Item
-                        icon={ <i className="iconfont icon-my" /> }
-                        selectedIcon={ <i className="iconfont icon-my" /> }
-                        title="我的"
-                        key="我的"
-                        selected={this.state.selectedTab === 'greenTab'}
-                        onPress={() => { this.setState({ selectedTab: 'greenTab', }); }}
-                    >
-                        {this.renderContent('我的')}
-                    </TabBar.Item>
-                </TabBar>
-            </div>
+                    {this.state.data.map(val => (
+                        <a
+                            key={val}
+                            href="http://www.alipay.com"
+                            style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
+                        >
+                            <img
+                                src={`https://zos.alipayobjects.com/rmsportal/${val}.png`}
+                                alt=""
+                                style={{ width: '100%', height: "100%", verticalAlign: 'top' }}
+                            />
+                        </a>
+                    ))}
+                </Carousel>
+            </WingBlank>
         );
     }
 }
-export default TabBarExample
-// ReactDOM.render(<TabBarExample />, mountNode);
+
+export default Carousels

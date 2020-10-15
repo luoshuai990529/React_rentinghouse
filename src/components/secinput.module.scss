@@ -1,0 +1,51 @@
+.sec_wrap {
+  z-index: 100;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translate(-50%);
+  width: 90%;
+  line-height: 34px;
+
+  display: flex;
+  .secinp {
+    width: 310px;
+    background: #fff;
+    border-radius: 5px;
+
+    span.search_city {
+      padding: 7px;
+      font-size: 14px;
+      color: #7f7f80;
+      &::after {
+        content: "|";
+        color: #e5e5e5;
+        margin-left: 10px;
+      }
+      .icon_arrow {
+        margin-left: 3px;
+        font-size: 12px;
+      }
+    }
+
+    span.text {
+      font-size: 13px;
+      color: #9c9fa1;
+      .icon_seach {
+        vertical-align: middle;
+        padding: 0 2px 0 8px;
+        color: hotpink;
+        font-size: 15px;
+      }
+    }
+  }
+
+  .map {
+    .icon_map {
+      vertical-align: middle;
+      font-size: 25px;
+      color: #fff;
+      margin-left: 6px;
+    }
+  }
+}

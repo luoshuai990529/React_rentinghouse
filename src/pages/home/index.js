@@ -25,7 +25,7 @@ class Home extends React.Component {
         return (
             <div className={style.homeContainer}>
                 {/*  首页轮播图部分*/}
-                <HomeBanner></HomeBanner>
+                <HomeBanner {...this.props}></HomeBanner>
                 {/* 首页nav菜单 */}
                 <Flex justify="around" className={style.homeNav}>
                     {

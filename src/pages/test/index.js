@@ -1,42 +1,26 @@
-import { Carousel, WingBlank } from 'antd-mobile';
 import React from "react"
-import "../../styles/carousel/index.scss"
+import { NavBar, Icon } from 'antd-mobile';
+import styles from "./index.module.scss"
 class Carousels extends React.Component {
-    state = {
-        data: ['1', '2', '3'],
-        imgHeight: 212,
-    }
+    
     componentDidMount() {
-        // simulate img loading
-        // 
-        setTimeout(() => {
-            this.setState({
-                data: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI'],
-            });
-        }, 100);
+       
     }
     render() {
         return (
-            <WingBlank>
-                <Carousel
-                    autoplay={false}
-                    infinite
-                >
-                    {this.state.data.map(val => (
-                        <a
-                            key={val}
-                            href="http://www.alipay.com"
-                            style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
-                        >
-                            <img
-                                src={`https://zos.alipayobjects.com/rmsportal/${val}.png`}
-                                alt=""
-                                style={{ width: '100%', height: "100%", verticalAlign: 'top' }}
-                            />
-                        </a>
-                    ))}
-                </Carousel>
-            </WingBlank>
+            <div className={styles.found_page}>
+            <NavBar
+              mode="light"
+              icon={<Icon type="left" />}
+              onLeftClick={() => console.log('onLeftClick')}
+              rightContent={[
+                <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
+                <Icon key="1" type="ellipsis" />,
+              ]}
+            >地图查找</NavBar>
+        
+           
+          </div>
         );
     }
 }

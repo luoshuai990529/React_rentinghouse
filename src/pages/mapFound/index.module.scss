@@ -1,0 +1,16 @@
+$mainColor: #f6f5f6;
+.found_page {
+  // 去除浏览器的上下回弹效果
+  touch-action: none;
+  // global样式穿透
+  :global {
+    .am-navbar-light {
+      background-color: $mainColor;
+    }
+  }
+}
+
+.baidu_map {
+  height: calc(100vh - 45px);
+//   background-color: aqua;
+}

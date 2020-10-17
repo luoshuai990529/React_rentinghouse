@@ -1,12 +1,12 @@
 import React, { Component, Fragment } from 'react';
-import { HashRouter as Router, Route, Switch ,Redirect} from "react-router-dom"
+import { HashRouter as Router, Route, Switch, Redirect } from "react-router-dom"
 
 // 引入页面组件
 import Index from "./pages/index";
 import MapFound from "./pages/mapFound";
 import CityList from "./pages/citySelect";
 import PageNotFound from "./pages/pageNotFound";
-// import Test from "./pages/test";
+import Test from "./pages/test";
 
 // 导入 connect 函数，用于把 dispatch 映射到组件 props 中
 import { connect } from "react-redux";
@@ -25,11 +25,16 @@ class App extends Component {
     return (
       <Fragment>
         {/* Index页面 */}
+        {/* redux中的城市名不是为全国才显示下面的路由，即等待地图定位完毕 */}
         <Router>
           <Switch>
-            <Redirect exact path="/h" to="/home"></Redirect>
+            <Redirect exact path="/" to="/home"></Redirect>
+            <Route path="/test" component={Test}></Route>
             <Route path="/home" component={Index}></Route>
-            <Route path="/map" component={MapFound}></Route>
+            <Route path="/map" >
+              {/* 这样没有路由信息，可以用到withRouter */}
+              {this.props.cityName !== "全国" && <MapFound />}
+            </Route>
             <Route path="/citylist" component={CityList}></Route>
             <Route component={PageNotFound}></Route>
           </Switch>
@@ -51,6 +56,9 @@ const mapDispatchToProps = (dispatch) => {
     }
   };
 };
-
+// 把 state 映射到 props 中的函数
+const mapStateToProps = (state) => {
+  return { ...state.mapReducer };
+};
 // connect 把 dispatch 映射到组件 props 中
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

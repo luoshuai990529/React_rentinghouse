@@ -11,7 +11,6 @@ class Groups extends React.Component {
     queryGroups = () => {
         this.$axios.get("/home/groups").then(res => {
             this.setState({ groupsData: res.data.body }, () => {
-                console.log("groups数据：", this.state);
             })
         })
     }

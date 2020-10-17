@@ -2,7 +2,7 @@ import { GET_CITY } from "../action/actionType";
 
 // 仓库默认数据
 const defaultState = {
-  cityName: '全国'
+  cityName: '定位中'
 };
 
 // 仓库管理员  action 由 dispatch 发送过来的

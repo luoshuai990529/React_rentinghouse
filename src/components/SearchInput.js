@@ -1,6 +1,7 @@
 import React from "react"
 import secStyle from "./secinput.module.scss"
 import { connect } from "react-redux";
+import {withRouter} from "react-router-dom"
 class SecInput extends React.Component {
 
     render() {
@@ -10,7 +11,7 @@ class SecInput extends React.Component {
                     <span className={secStyle.search_city}>{this.props.cityName}<i className={"iconfont icon-arrow " + secStyle.icon_arrow}></i></span>
                     <span className={secStyle.text}><i className={"iconfont icon-seach " + secStyle.icon_seach}></i> 请输入校区或地址</span>
                 </div>
-                <div className={secStyle.map}><i className={"iconfont icon-map " + secStyle.icon_map}></i></div>
+                <div className={secStyle.map} onClick={()=>{this.props.history.push("/map")}}><i className={"iconfont icon-map " + secStyle.icon_map}></i></div>
             </div>
         )
     }
@@ -23,4 +24,4 @@ const mapStateToProps = (state) => {
     return { ...state.mapReducer };
 };
 
-export default connect(mapStateToProps)(SecInput);
+export default withRouter(connect(mapStateToProps)(SecInput));

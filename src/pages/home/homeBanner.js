@@ -24,7 +24,7 @@ class Carousels extends React.Component {
             // WingBlank 两侧留白的组件
             // <WingBlank>
             <div className={style.banner}>
-                <SecInput></SecInput>
+                <SecInput ></SecInput>
                 {this.state.swiperData.length !== 0 &&
                     <Carousel
                         autoplay={false}

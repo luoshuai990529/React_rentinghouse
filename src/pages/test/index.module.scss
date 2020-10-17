@@ -1,0 +1,8 @@
+$mainColor:#21b97a;
+.found_page{
+    :global{
+        .am-navbar-light{
+            background-color: $mainColor;
+        }
+    }
+}

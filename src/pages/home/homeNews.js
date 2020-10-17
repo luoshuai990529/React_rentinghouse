@@ -11,7 +11,6 @@ class News extends React.Component {
     queryNews = () => {
         this.$axios.get("/home/news").then(res => {
             this.setState({ newsData: res.data.body }, () => {
-                console.log("news数据：", this.state);
             })
         })
     }

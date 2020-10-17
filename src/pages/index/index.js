@@ -6,22 +6,6 @@ import Found from "../found"
 import My from "../my"
 // import Index from "../index"
 class Index extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            selectedTab: '1',
-            hidden: false,
-        };
-    }
-
-    // 自定义的函数
-    renderContent(pageText) {
-        return (
-            <div style={{ backgroundColor: 'white', height: '100%', textAlign: 'center' }}>
-                {pageText}
-            </div>
-        );
-    }
 
     // 生命周期函数render
     render() {
@@ -34,12 +18,10 @@ class Index extends React.Component {
                 <Route path="/home/profile" component={My}></Route>
                 <div style={{ position: 'fixed', height: 50, width: '100%', bottom: 0 }}>
                     {/* 路由组件 */}
-
                     <TabBar
                         unselectedTintColor="#949494"//未选中字体颜色 
                         tintColor="#21B97A"//选中的字体颜色 
                         barTintColor="white"//背景色
-                        hidden={this.state.hidden}
                     >
                         <TabBar.Item
                             title="首页"
@@ -77,4 +59,3 @@ class Index extends React.Component {
     }
 }
 export default Index
-// ReactDOM.render(<TabBarExample />, mountNode);

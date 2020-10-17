@@ -10,6 +10,7 @@
   display: flex;
   .secinp {
     width: 310px;
+    margin: auto;
     background: #fff;
     border-radius: 5px;
 
@@ -45,7 +46,7 @@
       vertical-align: middle;
       font-size: 25px;
       color: #fff;
-      margin-left: 6px;
+      // margin-left: 6px;
     }
   }
 }

@@ -22,6 +22,7 @@ class App extends Component {
   }
 
   render() {
+    console.log('App组件的render', this.props);
     return (
       <Fragment>
         {/* Index页面 */}
@@ -33,7 +34,7 @@ class App extends Component {
             <Route path="/home" component={Index}></Route>
             <Route path="/map" >
               {/* 这样没有路由信息，可以用到withRouter */}
-              {this.props.cityName !== "全国" && <MapFound />}
+              {this.props.cityName !== "定位中" && <MapFound />}
             </Route>
             <Route path="/citylist" component={CityList}></Route>
             <Route component={PageNotFound}></Route>

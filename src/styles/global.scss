@@ -46,3 +46,25 @@ html {
 // .bg_color {
 //   background-color: $mainColor;
 // }
+.map_circle {
+  width: 70px;
+  height: 70px;
+  opacity: .8;
+  background-color: #24BC79;
+  border: 2px solid #fff;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.map_rect {
+  background-color: #24BC79;
+  color: #fff;
+  padding: 2px 5px;
+}
+

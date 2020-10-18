@@ -2,7 +2,7 @@ import { Carousel } from 'antd-mobile';
 import React from "react"
 import style from "./index.module.scss"
 //导入搜索框模块
-import SecInput from "../../components/SearchInput"
+import SecInput from "../../components/SearchInput/index"
 class Carousels extends React.Component {
     state = {
         swiperData: [],

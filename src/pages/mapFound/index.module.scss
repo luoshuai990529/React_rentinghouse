@@ -12,5 +12,19 @@ $mainColor: #f6f5f6;
 
 .baidu_map {
   height: calc(100vh - 45px);
-//   background-color: aqua;
+}
+.mapwrap{
+  position: relative;
+}
+.House_content.active{
+    bottom: 0vh !important;
+}
+.House_content {
+  position: fixed;
+  bottom: -50vh;
+  left: 0;
+  right: 0;
+  background: #fff;
+  height: 50vh;
+  transition: ease-out .5s all;
 }

@@ -1,0 +1,91 @@
+.house_list_wrap {
+  height: 100%;
+  
+  .house_title {
+    line-height: 44px;
+    background: #e7e7e7;
+    display: flex;
+    padding: 0 15px;
+    justify-content: space-between;
+    color: #1e1e1e;
+    span {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    a {
+      font-size: 13px;
+    }
+  }
+
+  .house_list {
+    // background: #fff;
+    overflow-y: auto;
+    height: 100%;
+    padding: 0 10px 50px;
+    .house_item {
+      display: flex;
+      padding: 20px 0px 10px 0px;
+      border-bottom: 1px solid #e5e5e5;
+      img {
+        width: 106px;
+        height: 80px;
+      }
+
+      .house_info {
+        margin-left: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        vertical-align: middle;
+        .house_info_name {
+          font-size: 15px;
+          font-weight: 700;
+          color: #394043;
+        }
+
+        .house_desc {
+          margin-top: 6px;
+          font-size: 12px;
+          color: #afb2b3;
+        }
+
+        .house_tags {
+          margin-top: 10px;
+          span {
+            margin-left: 5px;
+            padding: 3px;
+            font-size: 12px;
+            border-radius: 3px;
+            &:first-child {
+              margin-left: 0px;
+              color: #39becd;
+              background: #e1f5f8;
+            }
+            &:nth-child(2) {
+              color: #3fc28c;
+              background: #e1f5ed;
+            }
+            &:nth-child(3) {
+              color: #e48203;
+              background: #faf7df;
+            }
+          }
+        }
+
+        .house_price {
+          margin-top: 5px;
+          color: #fa5741;
+          font-size: 16px;
+          font-weight: bolder;
+          &::after {
+            content: "元/月";
+            font-size: 12px;
+            font-weight: normal;
+            margin-left: 5px;
+          }
+        }
+      }
+    }
+  }
+}

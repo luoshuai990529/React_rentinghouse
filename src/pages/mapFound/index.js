@@ -18,6 +18,7 @@ let levelData = [
   { id: 3, scale: 15, className: "map_rect" },
 ]
 let levelIndex = 0;
+let lableZindex=0;
 /* 
 获取城市房源数据：
   1.请求一：先通过城市名称换区一个城市id
@@ -36,6 +37,10 @@ let levelIndex = 0;
     1.展示房屋列表组件
     2.发送网络请求获取房源列表数据
     3.渲染到组建中
+    4.覆盖物移动过到视觉中心
+    5.被点击的覆盖物层级提升一级
+  
+  地图移动的时候，隐藏房屋列表
 
 */
 
@@ -52,16 +57,26 @@ class MapFound extends React.Component {
     areaCenterName = this.props.cityName
     this.renderMap();
   }
+  
 
   renderMap = () => {
     map = new BMap.Map("container")
+
+    map.addEventListener("dragstart",()=>{
+      // 拖拽地图隐藏房源列表
+      this.setState({
+        showHouseList:false
+      })
+    })
+
     // 🚩 添加地图控件
     // 建议把添加控件的代码写到定时器中，否则界面会先错乱一下才变正常(体验不好)
+    map.addControl(new BMap.NavigationControl());
+    map.addControl(new BMap.GeolocationControl());
     setTimeout(() => {
-      map.addControl(new BMap.NavigationControl());
+      // 因为加载问题 需要延迟5s
       map.addControl(new BMap.ScaleControl());
-      map.addControl(new BMap.GeolocationControl());
-    }, 1000);
+    }, 5000);
     // map.centerAndZoom(this.props.cityName, 12)
 
     this.getHouseData();
@@ -98,12 +113,15 @@ class MapFound extends React.Component {
         offset: new BMap.Size(-35, -35)
       };
       // 创建文本覆盖物，通过覆盖物内的div控制样式，切换类明就可以切换样式
-      const label = new BMap.Label(`<div class='${levelData[levelIndex].className}'><span>${areaName}</span><span>${count}套</span></div>`, opts)
+      const label = new BMap.Label(`<div class='${levelData[levelIndex].className}'><span>${areaName}</span><p>${count}套</p></div>`, opts)
       // 清除文本覆盖物原本的模人样还是
       label.setStyle({ border: 'none', backgroundColor: "transparent" });
       // 4.3把覆盖物添加到地图中
       map.addOverlay(label);
-      label.addEventListener("click", () => {
+      
+      label.addEventListener("click", (e) => {
+        
+        
         // 给用户提示
         if (levelIndex < 2) {
           levelIndex++;
@@ -118,8 +136,13 @@ class MapFound extends React.Component {
           // Toast.info("已经显示完所有数据啦~", 1)
           // return
         } else {
-
           this.getLevel3HourseList(id)
+
+          label.setZIndex(++lableZindex);
+          const {clientX,clientY} = e.changedTouches[0];
+          const x= window.screen.width/2 -clientX
+          const y= window.screen.height/2/2 -clientY
+          map.panBy(x,y)
         }
 
       })

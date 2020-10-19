@@ -1,28 +1,29 @@
 import React from "react"
-import { NavBar, Icon } from 'antd-mobile';
 import styles from "./index.module.scss"
-class Carousels extends React.Component {
-    
-    componentDidMount() {
-       
-    }
-    render() {
-        return (
-            <div className={styles.found_page}>
-            <NavBar
-              mode="light"
-              icon={<Icon type="left" />}
-              onLeftClick={() => console.log('onLeftClick')}
-              rightContent={[
-                <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
-                <Icon key="1" type="ellipsis" />,
-              ]}
-            >地图查找</NavBar>
-        
-           
-          </div>
-        );
-    }
+import { DatePickerView } from 'antd-mobile';
+import enUs from 'antd-mobile/lib/date-picker-view/locale/en_US';
+
+class DatePickerViewExample extends React.Component {
+  state = {
+    value: null,
+  };
+  onChange = (value) => {
+    console.log(value);
+    this.setState({ value });
+  };
+  onValueChange = (...args) => {
+    console.log(args);
+  };
+  render() {
+    return (<div>
+      <div className="sub-title">Start datetime</div>
+      <DatePickerView
+        value={this.state.value}
+        onChange={this.onChange}
+        onValueChange={this.onValueChange}
+      />
+    </div>);
+  }
 }
 
-export default Carousels
+export default DatePickerViewExample

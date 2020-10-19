@@ -53,16 +53,15 @@ html {
   background-color: #24BC79;
   border: 2px solid #fff;
   color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding-top: 15px;
   border-radius: 50%;
-
+  text-align: center;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .map_rect {
+  display: flex;
   background-color: #24BC79;
   color: #fff;
   padding: 2px 5px;

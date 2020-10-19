@@ -1,0 +1,79 @@
+.found_wrap {
+  position: relative;
+  .found_sec {
+    position: relative;
+    :global {
+      .am-navbar-light {
+        background-color: #f6f5f6;
+      }
+    }
+
+    .sec_input {
+      width: 95%;
+      position: absolute;
+      top: -16px;
+      left: 52%;
+      transform: translate(-50%);
+    }
+  }
+  .found_condiction {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #fff;
+    .head_warp {
+      line-height: 40px;
+      border-bottom: 1px solid #e4e6f0;
+      display: flex;
+      justify-content: space-around;
+      .con_items {
+        font-size: 17px;
+        .iconfont {
+          margin-left: 3px;
+          color: #bbb;
+          font-size: 12px;
+        }
+      }
+    }
+    //   条件内容样式
+    .condition_wrap {
+      height: 238px;
+    }
+    .footer {
+      display: flex;
+      border-top: 1px solid #e4e6f0;
+      span {
+        text-align: center;
+        line-height: 50px;
+        font-size: 18px;
+        &:first-child {
+          flex: 11;
+          color: #21b97a;
+        }
+        &:nth-child(2) {
+          flex: 21;
+          color: #fff;
+          background-color: #21b97a;
+        }
+      }
+    }
+  }
+
+  //   房源列表
+  .house_item {
+    margin-top: 0px;
+  }
+  //   遮罩层
+  .mask {
+    transition: 1s all;
+    position: fixed;
+    z-index: 99;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 1;
+  }
+}

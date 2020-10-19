@@ -36,7 +36,9 @@ class App extends Component {
               {/* 这样没有路由信息，可以用到withRouter */}
               {this.props.cityName !== "定位中" && <MapFound />}
             </Route>
-            <Route path="/citylist" component={CityList}></Route>
+            <Route path="/citylist" >
+              {this.props.cityName !== "定位中" && <CityList />}
+            </Route>
             <Route component={PageNotFound}></Route>
           </Switch>
         </Router>

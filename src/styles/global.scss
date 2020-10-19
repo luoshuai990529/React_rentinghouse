@@ -43,6 +43,12 @@ html {
   visibility: hidden;
 }
 
+// 隐藏地图给我们添加的iframe 影响页面布局
+iframe{
+  display: none;
+}
+
+
 // .bg_color {
 //   background-color: $mainColor;
 // }
